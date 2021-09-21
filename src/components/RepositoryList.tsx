@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 
 // https://api.github.com/orgs/rocketseat/repos
 
-const repository = {
-  name: 'unform',
-  description: 'Form in React',
-  link: 'https://github.com/unform/unform'
+interface Repository {
+  name: string;
+  description: string;
+  html_url: 'https://github.com/unform/unform'
 }
 
 export function RepositoryList() {
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
   useEffect(() => {
     fetch('https://api.github.com/orgs/rocketseat/repos')
